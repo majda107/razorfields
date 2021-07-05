@@ -18,6 +18,7 @@ namespace RazorFields.Demo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorFields();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,10 +31,7 @@ namespace RazorFields.Demo
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Hello World!"); });
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
         }
     }
 }

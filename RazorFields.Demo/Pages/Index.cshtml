@@ -1,0 +1,25 @@
+@page
+@using RazorFields.Demo.RazorModels
+@using RazorFields.Interfaces
+@model RazorFields.Demo.Views.Test
+@inject IRazorFieldsService _rfs;
+@{ var razorModel = _rfs.GetModel<HomePageRazorModel>(); }
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<h1>@razorModel.Heading</h1>
+This is a test page
+<div>
+
+</div>
+</body>
+</html>
