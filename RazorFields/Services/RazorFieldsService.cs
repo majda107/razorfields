@@ -35,6 +35,7 @@ namespace RazorFields.Services
             this.InstantiateModels(models);
         }
 
+        // TODO add nested arrays instantiation
         private void InstantiateModels(IEnumerable<Type> types)
         {
             foreach (var type in types)
@@ -44,6 +45,15 @@ namespace RazorFields.Services
 
                 this.RazorModels.Add(type, instance);
             }
+        }
+
+        public T GetModel<T>()
+        {
+            var type = typeof(T);
+            if (this.RazorModels.TryGetValue(type, out var instance))
+                return (T) instance;
+
+            return default;
         }
     }
 }
