@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace RazorFields.Interfaces
@@ -5,6 +6,6 @@ namespace RazorFields.Interfaces
     public interface IRazorFieldsService
     {
         public T GetModel<T>();
-        public IList<object> GetModels();
+        public IList<(Type type, object value)> GetModels();
     }
 }

@@ -37,7 +37,7 @@ namespace RazorFields.Services
             this.InstantiateModels(models);
         }
 
-        
+
         // TODO add nested arrays instantiation
         private void InstantiateModels(IEnumerable<Type> types)
         {
@@ -59,9 +59,11 @@ namespace RazorFields.Services
             return default;
         }
 
-        public IList<object> GetModels()
+        public IList<(Type, object)> GetModels()
         {
-            return this.RazorModels.Values.ToList();
+            return this.RazorModels.Keys
+                .Select(k => (k, this.RazorModels[k]))
+                .ToList();
         }
     }
 }
