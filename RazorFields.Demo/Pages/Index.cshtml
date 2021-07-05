@@ -20,6 +20,13 @@
 This is a test page
 <div>
 
+    <ul>
+        @foreach (var user in razorModel.Users)
+        {
+            <li>User: @user</li>
+        }
+    </ul>
+
 </div>
 </body>
 </html>
