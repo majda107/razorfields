@@ -3,7 +3,7 @@
 @using RazorFields.Interfaces
 @model RazorFields.Demo.Views.Test
 @inject IRazorFieldsService _rfs;
-@{ var razorModel = _rfs.GetModel<HomePageRazorModel>(); }
+@{ var razorModel = _rfs.GetModel<HomeRazorModel>(); }
 
 @{
     Layout = null;
@@ -20,10 +20,19 @@
 This is a test page
 <div>
 
+    <h2>Users</h2>
     <ul>
         @foreach (var user in razorModel.Users)
         {
-            <li>User: @user</li>
+            <li>User: @user.Name</li>
+        }
+    </ul>
+    
+    <h2>Numbers</h2>
+    <ul>
+        @foreach (var number in razorModel.Numbers)
+        {
+            <li>Number: @number</li>
         }
     </ul>
 

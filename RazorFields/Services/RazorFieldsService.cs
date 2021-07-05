@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using RazorFields.Attributes;
 using RazorFields.Extension;
+using RazorFields.Helpers;
 using RazorFields.Interfaces;
 
 namespace RazorFields.Services
@@ -38,11 +39,14 @@ namespace RazorFields.Services
 
         private object InstantiateType(Type type)
         {
-            object instance;
+            object instance = null;
             
             // check for default types
+
             if (type == typeof(string))
                 instance = "";
+            else if (type.IsPrimitive)
+                instance = DefaultGenerator.GetDefaultValue(type);
             else
                 instance = Activator.CreateInstance(type);
 
