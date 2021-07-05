@@ -19,6 +19,8 @@ namespace RazorFields.Demo
         {
             services.AddRazorFields();
             services.AddRazorPages();
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,7 +33,11 @@ namespace RazorFields.Demo
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
+            });
         }
     }
 }
