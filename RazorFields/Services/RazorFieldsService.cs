@@ -37,44 +37,13 @@ namespace RazorFields.Services
             this.InstantiateModels(models);
         }
 
-        private object InstantiateType(Type type)
-        {
-            object instance = null;
-            
-            // check for default types
-
-            if (type == typeof(string))
-                instance = "";
-            else if (type.IsPrimitive)
-                instance = DefaultGenerator.GetDefaultValue(type);
-            else
-                instance = Activator.CreateInstance(type);
-
-            foreach (var prop in type.GetProperties().Where(p => p.PropertyType.IsGenericEnumerableType()))
-            {
-                var elementType = prop.PropertyType.GetGenericArguments().FirstOrDefault();
-                if (elementType == null) continue;
-
-                var propInstance = this.InstantiateType(elementType);
-                
-                Type genericListType = typeof(List<>);
-                Type concreteListType = genericListType.MakeGenericType(elementType);
-                
-                var list = Activator.CreateInstance(concreteListType) as IList;
-                list?.Add(propInstance);
-
-                prop.SetValue(instance, list);
-            }
-
-            return instance;
-        }
-
+        
         // TODO add nested arrays instantiation
         private void InstantiateModels(IEnumerable<Type> types)
         {
             foreach (var type in types)
             {
-                var instance = this.InstantiateType(type);
+                var instance = InstanceHelper.InstantiateType(type);
                 if (instance is null) continue;
 
                 this.RazorModels.Add(type, instance);
