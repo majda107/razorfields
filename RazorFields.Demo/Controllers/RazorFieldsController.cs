@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using RazorFields.Api.Controllers;
+using RazorFields.Interfaces;
 
 namespace RazorFields.Demo.Controllers
 {
@@ -7,6 +8,8 @@ namespace RazorFields.Demo.Controllers
     [Route("api/[controller]")]
     public class RazorFieldsController: RazorFieldsControllerBase
     {
-        
+        public RazorFieldsController(IRazorFieldsService rfs) : base(rfs)
+        {
+        }
     }
 }

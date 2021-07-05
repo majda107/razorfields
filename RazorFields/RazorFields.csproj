@@ -8,8 +8,4 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\RazorFields.Api\RazorFields.Api.csproj" />
-    </ItemGroup>
-
 </Project>

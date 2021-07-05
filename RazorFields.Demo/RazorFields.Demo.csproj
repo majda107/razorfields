@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\RazorFields.Api\RazorFields.Api.csproj" />
       <ProjectReference Include="..\RazorFields\RazorFields.csproj" />
     </ItemGroup>
 

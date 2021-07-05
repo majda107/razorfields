@@ -58,5 +58,10 @@ namespace RazorFields.Services
 
             return default;
         }
+
+        public IList<object> GetModels()
+        {
+            return this.RazorModels.Values.ToList();
+        }
     }
 }
