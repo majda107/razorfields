@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RazorFields.EntityFramework.Persistence
 {
-    public class PersistenceRazorModel
+    public record PersistenceRazorModel
     {
         [Key]
         public Guid Id { get; set; }

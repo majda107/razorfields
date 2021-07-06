@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
@@ -16,19 +17,20 @@ namespace RazorFields.EntityFramework
             _db = db;
         }
 
-        public bool TryPopulateModel(object model)
+        public bool TryPopulateModel(Type type, out object model)
         {
-            var type = model.GetType();
+            // var type = model.GetType();
+            model = null;
 
             var set = this._db.Set<PersistenceRazorModel>();
 
             var entry = set
                 .AsNoTracking()
                 .FirstOrDefault(entity => entity.Name == type.Name);
-            
+
             if (entry == null) return false;
 
-            JsonConvert.PopulateObject(entry.Content, model);
+            model = JsonConvert.DeserializeObject(entry.Content, type);
 
             return true;
         }
@@ -36,9 +38,10 @@ namespace RazorFields.EntityFramework
         public bool TrySaveModel(object model)
         {
             var type = model.GetType();
-            
+
             var set = this._db.Set<PersistenceRazorModel>();
-            
+            var content = JsonConvert.SerializeObject(model);
+
             var entry = set
                 .AsNoTracking()
                 .FirstOrDefault(entity => entity.Name == type.Name);
@@ -49,7 +52,10 @@ namespace RazorFields.EntityFramework
                     Name = type.Name
                 };
 
-            entry.Content = JsonConvert.SerializeObject(model);
+            entry.Content = content;
+
+            this._db.Update(entry);
+            this._db.SaveChanges();
 
             return true;
         }

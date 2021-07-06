@@ -11,7 +11,8 @@ namespace RazorFields.Extension
             // var service = new RazorFieldsService();
             // services.AddSingleton<IRazorFieldsService, RazorFieldsService>((_) => service);
 
-            services.AddSingleton<IRazorFieldsService, RazorFieldsService>();
+            services.AddSingleton<IRazorFieldsStateService, RazorFieldsStateService>();
+            services.AddScoped<IRazorFieldsService, RazorFieldsService>();
         }
     }
 }

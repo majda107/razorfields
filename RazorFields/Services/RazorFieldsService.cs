@@ -14,64 +14,18 @@ namespace RazorFields.Services
 {
     public class RazorFieldsService : IRazorFieldsService
     {
-        private readonly IList<IRazorFieldsExtension> _extensions;
-        public IDictionary<Type, object> RazorModels { get; set; }
+        private readonly IRazorFieldsStateService _state;
 
-        public RazorFieldsService(IServiceProvider sp)
+        public RazorFieldsService(IRazorFieldsStateService state)
         {
-            // get all extensions
-            var extensions = sp.GetServices<IRazorFieldsExtension>();
-            this._extensions = extensions.ToList();
-
-            this.RazorModels = new Dictionary<Type, object>();
-
-            this.Init();
+            _state = state;
         }
 
-        private void Save(object model)
-        {
-            foreach (var extension in this._extensions)
-                extension.TrySaveModel(model);
-        }
-
-        private void Init()
-        {
-            // var asm = Assembly.GetExecutingAssembly();
-            var asm = Assembly.GetEntryAssembly();
-
-            var models = asm?
-                .GetTypes().ToList()
-                .Where(t =>
-                    t.IsRecord() &&
-                    t.GetCustomAttribute<RazorModelAttribute>() is not null
-                ) ?? ImmutableArray<Type>.Empty;
-
-            this.InstantiateModels(models);
-        }
-
-
-        // TODO add nested arrays instantiation
-        private void InstantiateModels(IEnumerable<Type> types)
-        {
-            foreach (var type in types)
-            {
-                var instance = InstanceHelper.InstantiateType(type);
-                if (instance is null) continue;
-
-                foreach (var extension in this._extensions)
-                    if (extension.TryPopulateModel(instance))
-                        break;
-
-                this.RazorModels.Add(type, instance);
-
-                this.Save(instance);
-            }
-        }
 
         public T GetModel<T>()
         {
             var type = typeof(T);
-            if (this.RazorModels.TryGetValue(type, out var instance))
+            if (this._state.RazorModels.TryGetValue(type, out var instance))
                 return (T) instance;
 
             return default;
@@ -79,8 +33,8 @@ namespace RazorFields.Services
 
         public IList<(Type, object)> GetModels()
         {
-            return this.RazorModels.Keys
-                .Select(k => (k, this.RazorModels[k]))
+            return this._state.RazorModels.Keys
+                .Select(k => (k, this._state.RazorModels[k]))
                 .ToList();
         }
 
