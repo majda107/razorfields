@@ -1,7 +1,11 @@
+using System;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+using Newtonsoft.Json;
 using RazorFields.Interfaces;
 
 namespace RazorFields.Api.Controllers
@@ -29,8 +33,20 @@ namespace RazorFields.Api.Controllers
         [HttpPut("{name}")]
         public async Task<ActionResult> PutModel([FromRoute] string name, [FromBody] JsonElement value)
         {
-            this._rfs.UpdateModel(name, value);
-            return NoContent();
+            var type = this._rfs.FindType(name);
+            if (type == null) return NotFound();
+
+            try
+            {
+                var model = JsonConvert.DeserializeObject(value.ToString() ?? "", type);
+                this._rfs.UpdateModel(model);
+
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
         }
     }
 }

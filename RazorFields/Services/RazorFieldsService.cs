@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Net.Http.Json;
 using System.Reflection;
+using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
 using RazorFields.Attributes;
 using RazorFields.Extension;
@@ -38,8 +40,19 @@ namespace RazorFields.Services
                 .ToList();
         }
 
-        public void UpdateModel(string name, object value)
+        public Type FindType(string name) => this._state.RazorModels.Keys.FirstOrDefault(t => t.Name == name);
+
+        public bool UpdateModel(object value)
         {
+            var type = value?.GetType();
+
+            // if type not found
+            if (type == null || !this._state.RazorModels.ContainsKey(type)) return false;
+
+            this._state.RazorModels[type] = value;
+            this._state.Save(value);
+
+            return true;
         }
     }
 }

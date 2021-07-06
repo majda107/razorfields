@@ -38,7 +38,7 @@ namespace RazorFields.Services
             this.InstantiateModels(models);
         }
 
-        private void Save(object model)
+        public void Save(object model)
         {
             using (var scope = this._sp.CreateScope())
             {
