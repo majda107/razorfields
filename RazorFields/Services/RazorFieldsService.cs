@@ -28,6 +28,12 @@ namespace RazorFields.Services
             this.Init();
         }
 
+        private void Save(object model)
+        {
+            foreach (var extension in this._extensions)
+                extension.TrySaveModel(model);
+        }
+
         private void Init()
         {
             // var asm = Assembly.GetExecutingAssembly();
@@ -55,8 +61,10 @@ namespace RazorFields.Services
                 foreach (var extension in this._extensions)
                     if (extension.TryPopulateModel(instance))
                         break;
-                
+
                 this.RazorModels.Add(type, instance);
+
+                this.Save(instance);
             }
         }
 
