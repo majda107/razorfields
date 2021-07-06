@@ -1,4 +1,6 @@
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using RazorFields.EntityFramework.Persistence;
 using RazorFields.Interfaces;
 
 namespace RazorFields.EntityFramework
@@ -14,7 +16,16 @@ namespace RazorFields.EntityFramework
 
         public bool TryPopulateModel(object model)
         {
-            throw new System.NotImplementedException();
+            var type = model.GetType();
+
+            var set = this._db.Set<PersistenceRazorModel>();
+            
+            var entry = set.FirstOrDefault(entity => entity.Name == type.Name);
+            if (entry == null) return false;
+            
+            // TODO implement population
+
+            return true;
         }
     }
 }

@@ -53,7 +53,8 @@ namespace RazorFields.Services
                 if (instance is null) continue;
 
                 foreach (var extension in this._extensions)
-                    extension.TryPopulateModel(instance);
+                    if (extension.TryPopulateModel(instance))
+                        break;
                 
                 this.RazorModels.Add(type, instance);
             }

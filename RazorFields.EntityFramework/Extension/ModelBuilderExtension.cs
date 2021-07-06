@@ -7,7 +7,8 @@ namespace RazorFields.EntityFramework.Extension
     {
         public static void UseRazorFields(this ModelBuilder builder)
         {
-            builder.Entity<PersistenceRazorModel>();
+            builder.Entity<PersistenceRazorModel>()
+                .HasIndex(p => p.Name);
         }
     }
 }
