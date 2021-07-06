@@ -8,8 +8,10 @@ namespace RazorFields.Extension
     {
         public static void AddRazorFields(this IServiceCollection services)
         {
-            var service = new RazorFieldsService();
-            services.AddSingleton<IRazorFieldsService, RazorFieldsService>((_) => service);
+            // var service = new RazorFieldsService();
+            // services.AddSingleton<IRazorFieldsService, RazorFieldsService>((_) => service);
+
+            services.AddSingleton<IRazorFieldsService, RazorFieldsService>();
         }
     }
 }

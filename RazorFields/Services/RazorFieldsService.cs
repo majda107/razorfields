@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 using RazorFields.Attributes;
 using RazorFields.Extension;
 using RazorFields.Helpers;
@@ -13,10 +14,15 @@ namespace RazorFields.Services
 {
     public class RazorFieldsService : IRazorFieldsService
     {
+        private readonly IList<IRazorFieldsExtension> _extensions;
         public IDictionary<Type, object> RazorModels { get; set; }
 
-        public RazorFieldsService()
+        public RazorFieldsService(IServiceProvider sp)
         {
+            // get all extensions
+            var extensions = sp.GetServices<IRazorFieldsExtension>();
+            this._extensions = extensions.ToList();
+
             this.RazorModels = new Dictionary<Type, object>();
 
             this.Init();
@@ -46,6 +52,9 @@ namespace RazorFields.Services
                 var instance = InstanceHelper.InstantiateType(type);
                 if (instance is null) continue;
 
+                foreach (var extension in this._extensions)
+                    extension.TryPopulateModel(instance);
+                
                 this.RazorModels.Add(type, instance);
             }
         }
@@ -68,7 +77,6 @@ namespace RazorFields.Services
 
         public void UpdateModel(string name, object value)
         {
-            
         }
     }
 }

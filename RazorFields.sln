@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.Demo", "RazorFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.Api", "RazorFields.Api\RazorFields.Api.csproj", "{A9EFB3DC-CD5D-4298-ABFC-9660A30343E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.EntityFramework", "RazorFields.EntityFramework\RazorFields.EntityFramework.csproj", "{2AC33041-7A81-4C67-87B3-F1F6B64A9D00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{A9EFB3DC-CD5D-4298-ABFC-9660A30343E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9EFB3DC-CD5D-4298-ABFC-9660A30343E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9EFB3DC-CD5D-4298-ABFC-9660A30343E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AC33041-7A81-4C67-87B3-F1F6B64A9D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AC33041-7A81-4C67-87B3-F1F6B64A9D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AC33041-7A81-4C67-87B3-F1F6B64A9D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AC33041-7A81-4C67-87B3-F1F6B64A9D00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
