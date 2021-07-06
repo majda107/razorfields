@@ -1,9 +1,11 @@
 @page
+@using RazorFields.Demo.Models
 @using RazorFields.Demo.RazorModels
 @using RazorFields.Interfaces
 @model RazorFields.Demo.Views.Test
 @inject IRazorFieldsService _rfs;
 @{ var razorModel = _rfs.GetModel<HomeRazorModel>(); }
+@{ var externalModel = _rfs.GetModel<ExternalRazorModel>(); }
 
 @{
     Layout = null;
@@ -37,6 +39,8 @@ This is a test page
         }
     </ul>
 
+    
+    <span>External: @externalModel.Hello</span>
 </div>
 </body>
 </html>

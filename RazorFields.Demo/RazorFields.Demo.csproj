@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\RazorFields.Api\RazorFields.Api.csproj" />
+      <ProjectReference Include="..\RazorFields.Demo.Models\RazorFields.Demo.Models.csproj" />
       <ProjectReference Include="..\RazorFields.EntityFramework\RazorFields.EntityFramework.csproj" />
       <ProjectReference Include="..\RazorFields\RazorFields.csproj" />
     </ItemGroup>

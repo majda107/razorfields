@@ -24,12 +24,13 @@ namespace RazorFields.Services
 
         private void Init()
         {
-            // var asm = Assembly.GetExecutingAssembly();
-            var asm = Assembly.GetEntryAssembly();
+            var types = AppDomain.CurrentDomain
+                .GetAssemblies()
+                .SelectMany(a => a.GetTypes())
+                .ToList();
 
-            var models = asm?
-                .GetTypes().ToList()
-                .Where(t =>
+            var models =
+                types.Where(t =>
                     t.IsRecord() &&
                     t.GetCustomAttribute<RazorModelAttribute>() is not null
                 ) ?? ImmutableArray<Type>.Empty;
