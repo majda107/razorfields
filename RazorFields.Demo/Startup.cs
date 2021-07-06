@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RazorFields.Demo.Database;
+using RazorFields.EntityFramework.Extension;
 using RazorFields.Extension;
 
 namespace RazorFields.Demo
@@ -18,6 +20,10 @@ namespace RazorFields.Demo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorFields();
+
+            services.AddDbContext<DatabaseContext>();
+            services.AddRazorFieldsEntityFramework<DatabaseContext>();
+
             services.AddRazorPages();
 
             services.AddControllers();
