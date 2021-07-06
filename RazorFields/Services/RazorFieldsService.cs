@@ -65,5 +65,10 @@ namespace RazorFields.Services
                 .Select(k => (k, this.RazorModels[k]))
                 .ToList();
         }
+
+        public void UpdateModel(string name, object value)
+        {
+            
+        }
     }
 }
