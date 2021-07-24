@@ -11,5 +11,6 @@ namespace RazorFields.Interfaces
 
         public Type FindType(string name);
         public bool UpdateModel(object value);
+        public void ResetModel(Type type);
     }
 }

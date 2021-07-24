@@ -49,5 +49,15 @@ namespace RazorFields.Api.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost("{name}/reset")]
+        public async Task<ActionResult> ResetModel([FromRoute] string name)
+        {
+            var type = this._rfs.FindType(name);
+            if (type == null) return NotFound();
+
+            this._rfs.ResetModel(type);
+            return NoContent();
+        }
     }
 }

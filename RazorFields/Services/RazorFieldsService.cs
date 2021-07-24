@@ -54,5 +54,14 @@ namespace RazorFields.Services
 
             return true;
         }
+
+        public void ResetModel(Type type)
+        {
+            if (!this._state.RazorModels.ContainsKey(type)) return;
+
+            var instance = InstanceHelper.InstantiateType(type);
+            this._state.RazorModels[type] = instance;
+            this._state.Save(instance);
+        }
     }
 }
