@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Newtonsoft.Json;
+using RazorFields.Api.Configuration;
 using RazorFields.Interfaces;
 
 namespace RazorFields.Api.Controllers
@@ -39,7 +40,9 @@ namespace RazorFields.Api.Controllers
 
             try
             {
-                var model = JsonConvert.DeserializeObject(value.ToString() ?? "", type);
+                var settings = JsonConfiguration.CreateReplaceSettings();
+                
+                var model = JsonConvert.DeserializeObject(value.ToString() ?? "", type, settings);
                 this._rfs.UpdateModel(model);
 
                 return NoContent();

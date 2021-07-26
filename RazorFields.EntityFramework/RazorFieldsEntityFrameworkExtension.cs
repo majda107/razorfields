@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using RazorFields.EntityFramework.Configuration;
 using RazorFields.EntityFramework.Persistence;
 using RazorFields.Interfaces;
 
@@ -30,7 +31,8 @@ namespace RazorFields.EntityFramework
 
             if (entry == null) return false;
 
-            model = JsonConvert.DeserializeObject(entry.Content, type);
+            var settings = JsonConfiguration.CreateReplaceSettings();
+            model = JsonConvert.DeserializeObject(entry.Content, type, settings);
 
             return true;
         }
@@ -40,7 +42,9 @@ namespace RazorFields.EntityFramework
             var type = model.GetType();
 
             var set = this._db.Set<PersistenceRazorModel>();
-            var content = JsonConvert.SerializeObject(model);
+
+            var settings = JsonConfiguration.CreateReplaceSettings();
+            var content = JsonConvert.SerializeObject(model, settings);
 
             var entry = set
                 .AsNoTracking()
