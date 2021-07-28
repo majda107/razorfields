@@ -5,6 +5,7 @@ While RazorFields are under active development, the project is **fully functiona
 
 ## What can RazorFields do?
 - simplify your template copywriting
+- separate copywriting X templating layers
 - store actual fields in persistent storage (EntityFramework, more comming soon...)
 - generate API for editing whole system at **runtime**
 
