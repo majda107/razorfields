@@ -31,5 +31,12 @@ public class RazorFieldsController : RazorFieldsControllerBase
 }
 ```
 
-## Planned features
+## Roadmap
+- [x] InMemory RazorModel caching (space for redis distr. cache)
+- [x] Attribute for injection
+- [x] Extension loader 
+- [x] EntityFramework connector extension nuget
+- [x] Rest API extension nuget  
 - [ ] Versioned RazorModel (eg. abstract razor model template you can create versions of)
+- [ ] MongoDB connector extension
+- [ ] Redis connector extension
