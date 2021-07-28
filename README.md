@@ -11,6 +11,11 @@ While RazorFields are under active development, the project is **fully functiona
 ## Documentation
 - to be done, see `RazorFields.Demo` project
 
+## Nugets
+- [Core nuget](https://www.nuget.org/packages/RazorFields)
+- [API extension](https://www.nuget.org/packages/RazorFields.Api)
+- [EntityFramework extension](https://www.nuget.org/packages/RazorFields.EntityFramework)
+
 ## Setup
 - register in services `services.AddRazorFields();`
 
@@ -30,11 +35,6 @@ public class RazorFieldsController : RazorFieldsControllerBase
     }
 }
 ```
-
-## Nugets
-- [Core nuget](https://www.nuget.org/packages/RazorFields)
-- [API extension](https://www.nuget.org/packages/RazorFields.Api)
-- [EntityFramework extension](https://www.nuget.org/packages/RazorFields.EntityFramework)
 
 ## Roadmap
 - [x] InMemory RazorModel caching (space for redis distr. cache)
