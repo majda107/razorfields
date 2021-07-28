@@ -5,17 +5,14 @@ A universal solution for editable page templates in ASP.NET.
 While RazorFields are under active development, the project is **fully functional** in it's present state (and being used in several apps of mine). Keep in mind that occassional issues may popup.
 
 ## What can RazorFields do?
----
 - simplify your template copywriting
 - store actual fields in persistent storage (EntityFramework, more comming soon...)
 - generate API for editing whole system at **runtime**
 
 ## Documentation
----
 - to be done, see `RazorFields.Demo` project
 
 ## Setup
----
 - register in services `services.AddRazorFields();`
 
 - create public **record** of yours and tag it with a `[RazorModel]` attribute
@@ -36,5 +33,4 @@ public class RazorFieldsController : RazorFieldsControllerBase
 ```
 
 ## Planned features
----
 - [ ] Versioned RazorModel (eg. abstract razor model template you can create versions of)
