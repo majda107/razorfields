@@ -40,3 +40,4 @@ public class RazorFieldsController : RazorFieldsControllerBase
 - [ ] Versioned RazorModel (eg. abstract razor model template you can create versions of)
 - [ ] MongoDB connector extension
 - [ ] Redis connector extension
+- [ ] Admin UI extension
