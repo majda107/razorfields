@@ -47,6 +47,7 @@ public class RazorFieldsController : RazorFieldsControllerBase
 - [ ] MongoDB connector extension
 - [ ] Redis connector extension
 - [ ] Admin UI extension
+- [ ] Custom cache extension
 
 ## License
 RazorFields project is licensed under the [MIT License](https://github.com/majda107/razorfields/blob/master/LICENSE)
