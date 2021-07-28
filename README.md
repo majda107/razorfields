@@ -1,4 +1,4 @@
-# RazorFields ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)
+# RazorFields [![Generic badge](https://img.shields.io/badge/Active?-yes-green.svg)](https://shields.io/)
 *A universal solution for editable page templates in ASP.NET.*
 
 While RazorFields are under active development, the project is **fully functional** in it's present state (and being used in several apps of mine). Keep in mind that occassional issues may popup.
