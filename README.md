@@ -38,7 +38,7 @@ public class RazorFieldsController : RazorFieldsControllerBase
 ```
 
 ## Roadmap
-- [x] InMemory RazorModel caching (space for redis distr. cache)
+- [x] In-memory razor model caching
 - [x] Attribute for injection
 - [x] Extension loader 
 - [x] EntityFramework connector extension nuget
@@ -47,7 +47,7 @@ public class RazorFieldsController : RazorFieldsControllerBase
 - [ ] MongoDB connector extension
 - [ ] Redis connector extension
 - [ ] Admin UI extension
-- [ ] Custom memory cache extension
+- [ ] Custom distributed cache extension (memory cache, redis)
 
 ## License
 RazorFields project is licensed under the [MIT License](https://github.com/majda107/razorfields/blob/master/LICENSE)
