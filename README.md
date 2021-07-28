@@ -31,6 +31,11 @@ public class RazorFieldsController : RazorFieldsControllerBase
 }
 ```
 
+## Nugets
+- [Core nuget](https://www.nuget.org/packages/RazorFields)
+- [API extension](https://www.nuget.org/packages/RazorFields.Api)
+- [EntityFramework extension](https://www.nuget.org/packages/RazorFields.EntityFramework)
+
 ## Roadmap
 - [x] InMemory RazorModel caching (space for redis distr. cache)
 - [x] Attribute for injection
