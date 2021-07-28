@@ -23,7 +23,7 @@ While RazorFields are under active development, the project is **fully functiona
 - inject RazorFields service with DI `private readonly IRazorFieldsService _rfs;`
 - query tagged razor models `var razorModel = _rfs.GetModel<HomeRazorModel>();`
 
-### OPTIONAL
+### Optional
 - add entity framework persistence `services.AddRazorFieldsEntityFramework<DatabaseContext>();`
 - create Rest API controller
 ```
