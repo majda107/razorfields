@@ -49,5 +49,7 @@ public class RazorFieldsController : RazorFieldsControllerBase
 - [ ] Admin UI extension
 - [ ] Custom distributed cache extension (memory cache, redis)
 
+- [ ] ? Saga-based history extension
+
 ## License
 RazorFields project is licensed under the [MIT License](https://github.com/majda107/razorfields/blob/master/LICENSE)
