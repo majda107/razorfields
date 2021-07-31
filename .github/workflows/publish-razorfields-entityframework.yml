@@ -20,5 +20,5 @@ jobs:
         id: publish_nuget
         uses: rohith/publish-nuget@v2
         with:
-          PROJECT_FILE_PATH: RazorFields.EntityFramework/RazorFields.EntityFramework.csproj
+          PROJECT_FILE_PATH: src/RazorFields.EntityFramework/RazorFields.EntityFramework.csproj
           NUGET_KEY: ${{secrets.NUGET_KEY}}
