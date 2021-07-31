@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\RazorFields\RazorFields.csproj" />
+        <ProjectReference Include="..\..\src\RazorFields\RazorFields.csproj"/>
     </ItemGroup>
 
 </Project>

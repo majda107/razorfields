@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields", "RazorFields\RazorFields.csproj", "{59A0ED65-ABCC-4975-9D07-A2688DAB4315}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields", "src\RazorFields\RazorFields.csproj", "{59A0ED65-ABCC-4975-9D07-A2688DAB4315}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.Demo", "RazorFields.Demo\RazorFields.Demo.csproj", "{A6082326-D8F3-4B1C-877A-E5878A2714EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.Demo", "examples\RazorFields.Demo\RazorFields.Demo.csproj", "{A6082326-D8F3-4B1C-877A-E5878A2714EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.Api", "RazorFields.Api\RazorFields.Api.csproj", "{A9EFB3DC-CD5D-4298-ABFC-9660A30343E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.Api", "src\RazorFields.Api\RazorFields.Api.csproj", "{A9EFB3DC-CD5D-4298-ABFC-9660A30343E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.EntityFramework", "RazorFields.EntityFramework\RazorFields.EntityFramework.csproj", "{2AC33041-7A81-4C67-87B3-F1F6B64A9D00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.EntityFramework", "src\RazorFields.EntityFramework\RazorFields.EntityFramework.csproj", "{2AC33041-7A81-4C67-87B3-F1F6B64A9D00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.Demo.Models", "RazorFields.Demo.Models\RazorFields.Demo.Models.csproj", "{A0037A7B-3B0F-4CBF-86CC-230EF065F6A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorFields.Demo.Models", "examples\RazorFields.Demo.Models\RazorFields.Demo.Models.csproj", "{A0037A7B-3B0F-4CBF-86CC-230EF065F6A3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{40CB277E-0175-4017-A46C-57680584E55E}"
 EndProject
