@@ -1,5 +1,5 @@
 # RazorFields [![Generic badge](https://img.shields.io/badge/Active%3F-yes-green.svg)](https://shields.io/)
-> A universal solution for editable page templates in ASP.NET
+> A universal solution for editable copywriting in ASP.NET core
 
 While RazorFields are under active development, the project is **fully functional** in it's present state (and being used in several apps of mine). Keep in mind that occassional issues may popup.
 
