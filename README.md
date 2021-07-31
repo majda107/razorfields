@@ -10,7 +10,7 @@ While RazorFields are under active development, the project is **fully functiona
 - generate API for editing whole system at **runtime**
 
 ## Documentation
-- to be done, see `RazorFields.Demo` project
+- to be done, see `examples` folder (`RazorFields.Demo` project)
 
 ## Nugets
 - [Core nuget](https://www.nuget.org/packages/RazorFields)
